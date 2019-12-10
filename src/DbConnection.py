@@ -204,7 +204,7 @@ class DbConnection ( object ) :
             # retry several times
             try :
                 self._conn = db.connect( **self._conn_parm )
-            except db.Error, ex :
+            except db.Error as ex :
                 self._log.error( 'DbConnection[%s]: database connection failed: %s', self._conn_parm.get('db','<None>'), str(ex) )
                 # wait max TIMEOUT seconds
                 if time.time() - t0 > self._timeout :
